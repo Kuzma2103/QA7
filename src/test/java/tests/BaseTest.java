@@ -17,12 +17,13 @@ public class BaseTest {
     @Before
     public void setup() {
         options = new ChromeOptions();
-        driver = new ChromeDriver(options);
 
         // Disable browser pop ups
         options.addArguments("--disable-notifications");
 
         System.setProperty("webdriver.chrome.driver", PropertyManager.getInstance().getDriverPath());
+
+        driver = new ChromeDriver(options);
 
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.manage().window().maximize();
