@@ -8,11 +8,5 @@ public class HomePage extends BasePage {
         super(driver);
     }
 
-    By errorMessageBy = By.xpath("//*[@id=\"center_column\"]/div[1]");
 
-    public HomePage verifyFailedLogin(String expectedText) {
-        String alert = readText(errorMessageBy);
-        assertStringEquals(alert, expectedText);
-        return this;
-    }
 }

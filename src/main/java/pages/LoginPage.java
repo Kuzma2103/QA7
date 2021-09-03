@@ -1,32 +1,34 @@
 package pages;
 
 
+import methods.LoginMethods;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utilities.PropertyManager;
 
 public class LoginPage extends BasePage {
+
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
-    By signInBy = By.className("login");
-    By emailBy = By.id("email");
-    By passwordBy = By.id("passwd");
-    By submitBy = By.id("SubmitLogin");
+    public LoginMethods methods;
 
-    String baseURL = PropertyManager.getInstance().getURL();
+    // Test methods
 
-    public LoginPage basePage() {
-        driver.get(baseURL);
+    // login user
+    public LoginPage loginUser(String email, String password) {
+        methods = new LoginMethods(driver);
+        methods.login(email, password);
         return this;
     }
 
-    public LoginPage login(String email, String password) {
-        click(signInBy);
-        writeText(emailBy, email);
-        writeText(passwordBy, password);
-        click(submitBy);
+    // Verification methods
+
+    // verify fail login
+    public LoginPage verifyFailLoginUser() {
+        methods = new LoginMethods(driver);
+        methods.verifyFailedLogin("There is 1 error\nAuthentication failed.");
         return this;
     }
 }
