@@ -1,8 +1,11 @@
 package methods;
 
+import data.DataCreation;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pages.BasePage;
+
+import java.util.ArrayList;
 
 public class LoginMethods extends BasePage {
 
@@ -10,12 +13,16 @@ public class LoginMethods extends BasePage {
         super(driver);
     }
 
+    // Element references
+
     By signInBy = By.className("login");
     By emailBy = By.id("email");
     By passwordBy = By.id("passwd");
     By submitBy = By.id("SubmitLogin");
 
+    // Assert element references
     By errorMessageBy = By.xpath("//*[@id=\"center_column\"]/div[1]");
+    By signOutBy = By.className("logout");
 
     // Methods
 
@@ -30,6 +37,14 @@ public class LoginMethods extends BasePage {
 
 
     // Verifications
+
+    // login verification
+    public LoginMethods verifyLogin(String expectedText) {
+        String elementText = readText(signOutBy);
+        assertStringEquals(elementText, expectedText);
+        return this;
+    }
+
 
     // fail login verification
     public LoginMethods verifyFailedLogin(String expectedText) {

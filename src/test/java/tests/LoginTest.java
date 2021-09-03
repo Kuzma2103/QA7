@@ -2,26 +2,24 @@ package tests;
 
 import org.junit.Assert;
 import org.junit.Test;
-import pages.HomePage;
 import pages.LoginPage;
 import utilities.PropertyManager;
 
-public class FailedLoginTest extends BaseTest {
+public class LoginTest extends BaseTest {
 
     public LoginPage loginPage;
 
     @Test
-    public void failedLogin() {
+    public void loginTest() {
         loginPage = new LoginPage(driver);
-        loginPage.failLoginUser();
+        loginPage.loginUser();
 
         // Test assertion
         try {
-            loginPage.verifyFailLoginUser();
-            System.out.print("The user IS NOT logged in.");
+            loginPage.verifyLoginUser();
+            System.out.println("User is logged in.");
         } catch (Exception e) {
-            Assert.fail("User IS logged in");
+            Assert.fail("Something went wrong.");
         }
     }
-
 }

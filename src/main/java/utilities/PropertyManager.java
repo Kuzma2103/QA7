@@ -12,8 +12,8 @@ public class PropertyManager {
     private static String bad_password;
 
     // user register data
-    private static String email;
-    private static String password;
+    private static String reg_email;
+    private static String reg_password;
     private static String first_name;
     private static String last_name;
 
@@ -34,8 +34,8 @@ public class PropertyManager {
         bad_password = prop.getProperty("bad_password");
 
         // user data
-        email = prop.getProperty("email");
-        password = prop.getProperty("password");
+        reg_email = prop.getProperty("reg_email");
+        reg_password = prop.getProperty("reg_password");
         first_name = prop.getProperty("first_name");
         last_name = prop.getProperty("last_name");
 
@@ -72,11 +72,11 @@ public class PropertyManager {
     }
 
     public String getEmail() {
-        return email;
+        return reg_email;
     }
 
     public String getPassword() {
-        return password;
+        return reg_password;
     }
 
     public String getFirstName() {
