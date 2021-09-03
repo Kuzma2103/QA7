@@ -14,8 +14,8 @@ public class FailedLoginTest extends BaseTest {
     public void failedLogin() {
         loginPage = new LoginPage(driver);
         loginPage.loginUser(
-                PropertyManager.getInstance().getEmail(),
-                PropertyManager.getInstance().getPassword()
+                PropertyManager.getInstance().getBadEmail(),
+                PropertyManager.getInstance().getBadPassword()
         );
 
         // Test assertion

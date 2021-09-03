@@ -20,13 +20,13 @@ public class BaseTest {
 
         // Disable browser pop ups
         options.addArguments("--disable-notifications");
+        options.addArguments("--start-maximized");
 
         System.setProperty("webdriver.chrome.driver", PropertyManager.getInstance().getDriverPath());
 
         driver = new ChromeDriver(options);
 
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
         driver.get(PropertyManager.getInstance().getURL());
     }
 
