@@ -7,6 +7,7 @@ import java.util.Properties;
 public class PropertyManager {
 
     private static String driverPath;
+    private static String driverPathLinux;
     private static String url;
     private static String bad_email;
     private static String bad_password;
@@ -29,6 +30,7 @@ public class PropertyManager {
         }
 
         driverPath = prop.getProperty("driverPath");
+        driverPathLinux = prop.getProperty("driverPathLinux");
         url = prop.getProperty("url");
         bad_email = prop.getProperty("bad_email");
         bad_password = prop.getProperty("bad_password");
@@ -57,6 +59,10 @@ public class PropertyManager {
 
     public String getDriverPath() {
         return driverPath;
+    }
+
+    public String getDriverPathLinux() {
+        return driverPathLinux;
     }
 
     public String getURL() {
