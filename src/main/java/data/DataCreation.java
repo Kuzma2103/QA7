@@ -25,6 +25,9 @@ public class DataCreation extends BasePage {
         userData.add(faker.number().digits(5));           // 6 Zip code
         userData.add(faker.phoneNumber().cellPhone());          // 7 Cell phone number
 
+        // Contact us
+        userData.add(faker.chuckNorris().fact());               // 8 Contact Message
+
         return userData;
     }
 
