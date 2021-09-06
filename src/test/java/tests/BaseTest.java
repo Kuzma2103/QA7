@@ -22,10 +22,17 @@ public class BaseTest {
         options.addArguments("--disable-notifications");
         options.addArguments("--start-maximized");
 
-        // For windows OS
-        // System.setProperty("webdriver.chrome.driver", PropertyManager.getInstance().getDriverPath());
-        // For Linux / Ubuntu OS
-        System.setProperty("webdriver.chrome.driver", PropertyManager.getInstance().getDriverPathLinux());
+        // Check for OS version
+        String os = System.getProperty("os.name").toLowerCase();
+        System.out.println(os);
+
+        if (os.contains("windows")) {
+            // For windows OS
+            System.setProperty("webdriver.chrome.driver", PropertyManager.getInstance().getDriverPath());
+        } else {
+            // For Linux / Ubuntu OS
+            System.setProperty("webdriver.chrome.driver", PropertyManager.getInstance().getDriverPathLinux());
+        }
 
         driver = new ChromeDriver(options);
 
